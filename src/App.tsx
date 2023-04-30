@@ -1,7 +1,11 @@
 import React from 'react';
+import SinglePerson from "./components/SinglePerson";
 function App() {
   return (
-   <p>Hello World</p>
+   <main>
+     <SinglePerson />
+   </main>
+
   );
 }
 
