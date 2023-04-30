@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import SinglePerson from "./components/SinglePerson";
 function App() {
   return (
