@@ -13,8 +13,16 @@ export default class ListingPeople extends Component {
     render() {
         const { people } = this.state;
         return (
-            <Person people={people} />
+            <Person people={people}
+                    submit={this.doSubmit}
+            />
         );
+    }
+
+    doSubmit = () => {
+        const { history } = this.props;
+
+        return history.replace("/singlePerson")
     }
 
 }
