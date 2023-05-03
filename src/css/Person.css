@@ -1,7 +1,20 @@
-.container {
+.people {
     display: flex;
-    justify-items: center;
     flex-wrap: wrap;
+    padding-left: 0;
+}
+
+@media screen and (min-width: 2888px){
+    .person {
+        display: flex;
+        background: #eeeeee;
+        width: 80rem;
+        padding: 1rem;
+        margin: 1rem auto;
+        transition: all 0.3s linear;
+        border-radius: 0.3rem;
+        text-align: center;
+    }
 }
 
 .person {
