@@ -1,0 +1,37 @@
+.people {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+}
+
+@media screen and (min-width: 2888px){
+    .person {
+        display: flex;
+        background: #eeeeee;
+        width: 80rem;
+        padding: 1rem;
+        margin: 1rem auto;
+        transition: all 0.3s linear;
+        border-radius: 0.3rem;
+        text-align: center;
+    }
+}
+
+.person {
+    background: #eeeeee;
+    width: 30rem;
+    padding: 1rem;
+    margin: 2rem auto;
+    transition: all 0.3s linear;
+    border-radius: 0.3rem;
+    text-align: center;
+}
+
+.person img {
+    border-radius: 50%;
+    border: 0.1rem solid teal;
+}
+
+.person:hover {
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
