@@ -4,19 +4,6 @@
     padding-left: 0;
 }
 
-@media screen and (min-width: 2888px){
-    .person {
-        display: flex;
-        background: #eeeeee;
-        width: 80rem;
-        padding: 1rem;
-        margin: 1rem auto;
-        transition: all 0.3s linear;
-        border-radius: 0.3rem;
-        text-align: center;
-    }
-}
-
 .person {
     background: #eeeeee;
     width: 30rem;
@@ -34,4 +21,114 @@
 
 .person:hover {
     box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1439px) {
+    .people {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        width: 90vw;
+        margin: 0 auto;
+    }
+
+    .person {
+        background: #eeeeee;
+        width: 23rem;
+        padding: 0.01rem;
+        margin: 1rem auto;
+        transition: all 0.3s linear;
+        border-radius: 0.3rem;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1440px) and (max-width: 1706px) {
+    .people {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        width: 90vw;
+        margin: 0 auto;
+    }
+
+    .person {
+        background: #eeeeee;
+        width: 24rem;
+        padding: 0.01rem;
+        margin: 1rem auto;
+        transition: all 0.3s linear;
+        border-radius: 0.3rem;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1707px) and (max-width: 1919px) {
+    .people {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        width: 80vw;
+        margin: 0 auto;
+    }
+
+    .person {
+        background: #eeeeee;
+        width: 24rem;
+        padding: 0.01rem;
+        margin: 1rem auto;
+        transition: all 0.3s linear;
+        border-radius: 0.3rem;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1920px) and (max-width: 2133px) {
+    .people {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        width: 90vw;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 2134px) and (max-width: 2399px) {
+    .people {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        width: 80vw;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 2400px) and (max-width: 2742px) {
+    .people {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        width: 70vw;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 2743px) and (max-width: 3199px) {
+    .people {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        width: 60vw;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 3200px){
+    .people {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        width: 50vw;
+        margin: 0 auto;
+    }
 }
