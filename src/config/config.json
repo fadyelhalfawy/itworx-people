@@ -1,3 +1,4 @@
 {
-  "peoplePath": "https://reqres.in/api/users?page=2"
+  "peoplePath": "https://reqres.in/api/users?page=2",
+  "authPath": "https://reqres.in/api/login"
 }
