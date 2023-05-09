@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PersonForm from "./components/PersonForm";
 
 export class App extends Component {
     render() {
@@ -15,6 +16,7 @@ export class App extends Component {
                 <main>
                     <Switch>
                         <Route path={"/login"} component={Login}/>
+                        <Route path={"/listingPeople/:id"} component={PersonForm}/>
                         <Route path={"/listingPeople"} component={ListingPeople} />
                         <Route path={"/singlePerson"} component={SinglePerson} />
                         <Route path={"/not-found"} to={NotFound} />
