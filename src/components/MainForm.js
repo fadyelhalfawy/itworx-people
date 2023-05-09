@@ -31,7 +31,10 @@ export default class MainForm extends Component {
         e.preventDefault();
         const errors = this.validate();
         this.setState({errors: errors || {} });
-        if (errors) return;
+        if (errors) {
+            console.log(errors);
+            return;
+        }
 
         this.doSubmit();
     };
@@ -72,7 +75,7 @@ export default class MainForm extends Component {
     // }
 
     handleClickButton = (history, path, label) => {
-        if (path === "/movies") {
+        if (path === "/listingPeople") {
             const errors = this.validate();
             this.setState({errors: errors || {}});
             if (errors) return;
