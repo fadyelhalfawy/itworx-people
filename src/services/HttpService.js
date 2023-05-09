@@ -7,7 +7,7 @@ Axios.interceptors.response.use(null, error => {
         && error.response.status < 500;
 
     if (expectedError){
-        toast("An unexpected error occurred..");
+        toast.error("An unexpected error occurred..(Wrong username or password)");
     }
 
     return Promise.reject(error);
