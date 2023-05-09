@@ -1,8 +1,9 @@
+import "../css/InputForm.css";
 const InputForm = ({ name, label, error, ...rest }) => {
     return(
         <div className="form-group">
             <label htmlFor={name}>{label}</label>
-            <input className="form-control clickable"
+            <input className="form-input clickable"
                    {...rest}
                    id={name}
                    name={name}
