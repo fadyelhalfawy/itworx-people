@@ -14,15 +14,22 @@ export default class ListingPeople extends Component {
         const { people } = this.state;
         return (
             <Person people={people}
-                    submit={this.doSubmit}
+                    submit={this.showPeople}
+                    delete={this.deletePerson}
             />
         );
     }
 
-    doSubmit = () => {
+    showPeople = () => {
         const { history } = this.props;
 
-        return history.replace("/singlePerson")
+        return history.replace("/listingPeople/:id");
+    }
+
+    deletePerson = () => {
+        const { history } = this.props;
+
+        return history.replace("/listingPeople/:id");
     }
 
 }
