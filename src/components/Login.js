@@ -14,7 +14,7 @@ export default class Login extends MainForm {
     schema = {
         email: Joi
             .string()
-            .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'in'] } })
+            .email({minDomainSegments: 2, tlds: {allow: ['com', 'net', 'in']}})
             .required()
             .label('Email'),
 
@@ -26,7 +26,7 @@ export default class Login extends MainForm {
     };
 
     render() {
-        const { history } = this.props;
+        const {history} = this.props;
         return (
             <React.Fragment>
                 <section>
@@ -54,17 +54,16 @@ export default class Login extends MainForm {
     }
 
     doSubmit = async () => {
-        const { data, errors } = this.state;
+        const {data, errors} = this.state;
         try {
             const {location} = this.props;
             await auth.login(data.email, data.password);
-            const { state } = location;
+            const {state} = location;
             window.location = state ? state.from.pathname : "/";
-        }
-        catch (e) {
+        } catch (e) {
             if (e.response && e.response.status === 400) {
                 errors.data = e.response.data;
-                this.setState({ errors });
+                this.setState({errors});
             }
         }
 
