@@ -10,6 +10,7 @@ class PersonForm extends MainForm {
             last_name: "",
             email: "",
             avatar: ""},
+        people: {},
         errors: {}
     }
 
@@ -39,6 +40,7 @@ class PersonForm extends MainForm {
     };
 
     async componentDidMount() {
+        await this.populatePeople();
         await this.populatePerson();
     }
 
@@ -64,14 +66,31 @@ class PersonForm extends MainForm {
             </React.Fragment>
         );
     }
+
+    async populatePeople() {
+        const { history } = this.props;
+        try {
+            const { data } = await getPeople();
+
+            this.setState({ people: data.data });
+        }
+        catch (e) {
+            if (e.response && e.response.status === 404)
+                history.replace("/notfound");
+        }
+    }
     async populatePerson() {
+        const { people } = this.state;
         const { history, match } = this.props;
         try {
             const personId = match.params.id;
+
             if (personId === "new") return;
             const {data} = await getPerson();
             console.log(data.data);
-            this.setState({ data: this.mapToViewModel(data.data) });
+            const body = { ...people[match.params.id - 7] };
+
+            this.setState({ data: this.mapToViewModel(body) });
         }
         catch (e) {
             if (e.response && e.response.status === 404)
@@ -92,8 +111,10 @@ class PersonForm extends MainForm {
     doSubmit = async () => {
         const { data: person } = this.state;
         const { history } = this.props;
-
         await saveUpdate(person);
+        const body = { ...person };
+        this.setState({ data: this.mapToViewModel(body) });
+        console.log(body);
         return history.replace("/listingPeople");
     };
 }
