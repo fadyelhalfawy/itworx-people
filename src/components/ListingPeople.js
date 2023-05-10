@@ -13,23 +13,22 @@ export default class ListingPeople extends Component {
     render() {
         const { people } = this.state;
         return (
-            <Person people={people}
-                    submit={this.showPeople}
-                    delete={this.deletePerson}
-            />
+            <Person   people={people}
+                      showPerson={this.showPerson}
+                      deletePerson={this.deletePerson}/>
         );
     }
 
-    showPeople = () => {
+    showPerson = personId => {
         const { history } = this.props;
 
-        return history.replace("/listingPeople/:id");
+        return history.replace("/listingPeople/" + personId);
     }
-
-    deletePerson = () => {
-        const { history } = this.props;
-
-        return history.replace("/listingPeople/:id");
+    deletePerson = async personId => {
+        const { people } = this.state;
+        const {data} = await getPeople();
+        if (people.length - 1 === 0) return this.setState({ people: data.data });
+        const newPeople = people.filter(person => person.id !== personId);
+        this.setState({ people: newPeople });
     }
-
 }
