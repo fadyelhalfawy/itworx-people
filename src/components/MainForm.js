@@ -6,7 +6,6 @@ export default class MainForm extends Component {
         data: {},
         errors: {}
     };
-
     validate() {
         const options = {abortEarly: false};
         const { error } = Joi.validate(this.state.data, this.schema, options);
@@ -98,5 +97,5 @@ export default class MainForm extends Component {
         if (label === "Signup" || label === "Login") return history.replace(path);
 
         return history.push(path);
-    }
+    };
 }
