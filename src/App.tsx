@@ -12,6 +12,7 @@ import PersonForm from "./components/PersonForm";
 import NavBar from "./components/NavBar";
 import auth from "./services/AuthService";
 import Logout from "./components/Logout";
+import CreateUser from "./components/CreateUser";
 
 export class App extends Component {
     state = {
@@ -37,6 +38,7 @@ export class App extends Component {
                         <Route path={"/listingPeople/:id"} component={PersonForm}/>
                         <Route path={"/listingPeople"} component={ListingPeople} />
                         <Route path={"/singlePerson"} component={SinglePerson} />
+                        <Route path={"/signup"} component={CreateUser} />
                         <Route path={"/not-found"} to={NotFound} />
                         <Redirect from={"/"} exact to={"/listingPeople"}/>
                         <Redirect to={"/not-found"}/>
