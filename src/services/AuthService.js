@@ -11,7 +11,7 @@ async function login(email, password) {
 }
 
 function loginWithJwt(jwt) {
-    localStorage.setItem(tokenKey, jwt.token);
+    localStorage.setItem(tokenKey, jwt.data.token);
 }
 
 function getCurrentUser() {
