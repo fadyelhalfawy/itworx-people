@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import Joi from "joi-browser";
 import MainForm from "./MainForm";
 import {getPeople, getPerson, saveUpdate} from "../services/PeopleService";
+import {FaGithub} from "react-icons/fa";
+import "../css/SinglePerson.css";
+import person from "../services/TestData";
 
 class PersonForm extends MainForm {
     state = {
@@ -45,8 +48,32 @@ class PersonForm extends MainForm {
     }
 
     render() {
+        const {name, job, image, text} = person[0];
+
         return (
             <React.Fragment>
+                <section className={"container"}>
+                    <div className={"title"}>
+                        <h2>
+                            Person Information
+                        </h2>
+                        <div className={"underline"}></div>
+                    </div>
+                    <article className={"choice"}>
+
+                        <div className={"img-container"}>
+                            <img src={image} alt={name} className={"person-img"} />
+                            <span className={"quote-icon"}>
+                            <FaGithub />
+                        </span>
+                        </div>
+
+                        <h2 className={"author"}>{name}</h2>
+                        <h3 className={"job"}>{job}</h3>
+                        <p className={"info"}>{text}</p>
+                    </article>
+                </section>
+
                 <section>
                     <h1>Person Form</h1>
 

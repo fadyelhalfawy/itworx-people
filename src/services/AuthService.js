@@ -11,13 +11,15 @@ async function login(email, password) {
 }
 
 function loginWithJwt(jwt) {
-    localStorage.setItem(tokenKey, jwt.token);
+    localStorage.setItem(tokenKey, jwt.data.token);
 }
 
 function getCurrentUser() {
     try {
         const jwt = localStorage.getItem(tokenKey);
-        return jwtDecode(jwt);
+        if (jwt === null) return null;
+        else return true;
+        // return jwtDecode(jwt); using while the API if correct and return the user.
     }
     catch (e) {
         return null;

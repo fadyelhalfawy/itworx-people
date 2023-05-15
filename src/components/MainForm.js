@@ -1,6 +1,7 @@
 import {Component} from "react";
 import Joi from "joi-browser";
 import InputForm from "./InputForm";
+import CheckBox from "./CheckBox";
 export default class MainForm extends Component {
     state = {
         data: {},
@@ -64,14 +65,14 @@ export default class MainForm extends Component {
         );
     }
 
-    // renderCheckBox(label, id) {
-    //     return(
-    //         <CheckBoxForm
-    //             label={label}
-    //             id={id}
-    //         />
-    //     );
-    // }
+    renderCheckBox(label, id) {
+        return(
+            <CheckBox
+                label={label}
+                id={id}
+            />
+        );
+    }
 
     handleClickButton = (history, path, label) => {
         if (path === "/listingPeople") {
