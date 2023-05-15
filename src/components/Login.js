@@ -36,16 +36,15 @@ export default class Login extends MainForm {
                         {this.renderFormInput("email", "Email", 'Email@')}
                         {this.renderFormInput("password", "Password", 'password...', "Password")}
 
-                        {/*{this.renderCheckBox("Remember me", "checkBox")}*/}
+                        {this.renderCheckBox("Remember me", "checkBox")}
 
-                        {/*{this.renderButton("btn-outline-info", "Login", history, "/movies", this.validate())}*/}
                         <button className={"btn btn-outline-info btn-space m-2"}
                                 disabled={this.validate()}
                                 onClick={this.handleSubmit}>
                             Login
                         </button>
 
-                        {this.renderButton("btn-outline-danger", "Back", history, "/login", false)}
+                        {this.renderButton("btn-outline-danger", "Back", history, "/signup", false)}
                     </form>
                 </section>
 
