@@ -3,6 +3,7 @@ import Joi from "joi-browser";
 import {signUp} from "../services/UserService";
 import MainForm from "./MainForm";
 import auth from "../services/AuthService";
+import {Redirect} from "react-router-dom";
 
 export default class CreateUser extends MainForm {
     state = {
@@ -26,6 +27,8 @@ export default class CreateUser extends MainForm {
 
     render() {
         const { history } = this.props;
+
+        if (auth.getCurrentUser()) return <Redirect to="/" />;
 
         return (
             <React.Fragment>
