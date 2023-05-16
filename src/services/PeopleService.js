@@ -16,7 +16,3 @@ export function saveUpdate(person) {
 
     return http.post(config.peoplePath, person);
 }
-
-export function deletePersonId() {
-    return http.delete(config.personPath);
-}
