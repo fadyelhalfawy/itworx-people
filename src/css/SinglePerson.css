@@ -10,11 +10,6 @@
     }
 }
 
-main {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-}
 .title {
     text-align: center;
     margin-bottom: 4rem;
