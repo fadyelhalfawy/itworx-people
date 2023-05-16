@@ -54,6 +54,13 @@ body {
   line-height: 1.5;
   font-size: 0.875rem;
 }
+
+main {
+  min-height: 85vh;
+  display: grid;
+  place-items: center;
+}
+
 ul {
   list-style-type: none;
 }
