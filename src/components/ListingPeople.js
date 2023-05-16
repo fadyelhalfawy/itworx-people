@@ -1,5 +1,5 @@
 import {Component} from "react";
-import {getPeople} from "../services/PeopleService";
+import {deletePersonId, getPeople} from "../services/PeopleService";
 import Person from "./Person";
 export default class ListingPeople extends Component {
     state = {
@@ -15,17 +15,24 @@ export default class ListingPeople extends Component {
         return (
             <Person   people={people}
                       showPerson={this.showPerson}
+                      updatePerson={this.getPerson}
                       deletePerson={this.deletePerson}/>
         );
     }
 
-    showPerson = personId => {
+    showPerson =  () => {
+        const { history } = this.props;
+
+        return history.replace("/singlePerson");
+    }
+    getPerson = personId => {
         const { history } = this.props;
 
         return history.replace("/listingPeople/" + personId);
     }
     deletePerson = async personId => {
         const { people } = this.state;
+        await deletePersonId();
         const {data} = await getPeople();
         if (people.length - 1 === 0) return this.setState({ people: data.data });
         const newPeople = people.filter(person => person.id !== personId);

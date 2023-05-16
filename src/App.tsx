@@ -34,12 +34,12 @@ export class App extends Component {
                 <main>
                     <Switch>
                         <Route path={"/login"} component={Login}/>
-                        <Route path={"/logout"} component={Logout} />
-                        <Route path={"/listingPeople/:id"} component={PersonForm}/>
-                        <Route path={"/listingPeople"} component={ListingPeople} />
-                        <Route path={"/singlePerson"} component={SinglePerson} />
+                        <ProtectedRoute path={"/logout"} user={user} component={Logout} />
+                        <ProtectedRoute path={"/listingPeople/:id"} user={user} component={PersonForm}/>
+                        <ProtectedRoute path={"/listingPeople"} user={user} component={ListingPeople}/>
+                        <ProtectedRoute path={"/singlePerson"} user={user} component={SinglePerson}/>
                         <Route path={"/signup"} component={CreateUser} />
-                        <Route path={"/not-found"} to={NotFound} />
+                        <Route path={"/not-found"} component={NotFound} />
                         <Redirect from={"/"} exact to={"/listingPeople"}/>
                         <Redirect to={"/not-found"}/>
                     </Switch>

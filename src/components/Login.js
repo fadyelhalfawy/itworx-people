@@ -2,6 +2,7 @@ import MainForm from "./MainForm";
 import auth from "../services/AuthService";
 import React from "react";
 import Joi from "joi-browser";
+import {Redirect} from "react-router-dom";
 export default class Login extends MainForm {
     state = {
         data: {
@@ -24,9 +25,11 @@ export default class Login extends MainForm {
             .min(5)
             .label('Password')
     };
-
     render() {
-        const {history} = this.props;
+        const { history } = this.props;
+
+        if (auth.getCurrentUser()) return <Redirect to="/" />;
+
         return (
             <React.Fragment>
                 <section>
