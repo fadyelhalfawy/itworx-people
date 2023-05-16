@@ -4,7 +4,8 @@ import {signUp} from "../services/UserService";
 import MainForm from "./MainForm";
 import auth from "../services/AuthService";
 import {Redirect} from "react-router-dom";
-
+import {toast} from "react-toastify";
+import {displayGetPersonNotification} from "../services/HttpService";
 export default class CreateUser extends MainForm {
     state = {
         data: {email: "", password: ""},
@@ -57,18 +58,16 @@ export default class CreateUser extends MainForm {
 
     doSubmit = async () => {
         const { data, errors } = this.state;
-        const {history} = this.props;
-
         try {
             const jwt = await signUp(data);
             auth.loginWithJwt(jwt);
-            history.replace("/login");
+            window.location = "/";
         }
         catch (e) {
             if (e.response && e.response.status === 400) {
                 const error = { ...errors };
                 error.email = e.response.data;
-                this.setState({ errors: error});
+                this.setState({ errors: error.email});
             }
         }
 
