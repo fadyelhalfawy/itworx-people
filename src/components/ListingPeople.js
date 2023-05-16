@@ -1,6 +1,7 @@
 import {Component} from "react";
 import {deletePersonId, getPeople} from "../services/PeopleService";
 import Person from "./Person";
+import {displayDeleteNotification, displayNotification} from "../services/HttpService";
 export default class ListingPeople extends Component {
     state = {
         people: []
@@ -12,6 +13,7 @@ export default class ListingPeople extends Component {
     }
     render() {
         const { people } = this.state;
+        displayNotification();
         return (
             <Person   people={people}
                       showPerson={this.showPerson}
@@ -33,6 +35,7 @@ export default class ListingPeople extends Component {
     deletePerson = async personId => {
         const { people } = this.state;
         await deletePersonId();
+        displayDeleteNotification();
         const {data} = await getPeople();
         if (people.length - 1 === 0) return this.setState({ people: data.data });
         const newPeople = people.filter(person => person.id !== personId);
