@@ -7,3 +7,9 @@ export function signUp(user) {
         password: user.password
     });
 }
+export function createUser(user) {
+    return http.post(config.addUserPath, {
+        name: user.name,
+        job: user.job
+    });
+}
