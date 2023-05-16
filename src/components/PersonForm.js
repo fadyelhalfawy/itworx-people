@@ -5,6 +5,11 @@ import {getPeople, getPerson, saveUpdate} from "../services/PeopleService";
 import {FaGithub} from "react-icons/fa";
 import "../css/SinglePerson.css";
 import person from "../services/TestData";
+import {
+    displayGetPersonNotification,
+    displayLoginNotification,
+    displayUpdateNotification
+} from "../services/HttpService";
 
 class PersonForm extends MainForm {
     state = {
@@ -114,6 +119,7 @@ class PersonForm extends MainForm {
 
             if (personId === "new") return;
             const {data} = await getPerson();
+            displayGetPersonNotification();
             console.log(data.data);
             const body = { ...people[match.params.id - 7] };
 
@@ -142,6 +148,7 @@ class PersonForm extends MainForm {
         const body = { ...person };
         this.setState({ data: this.mapToViewModel(body) });
         console.log(body);
+        displayUpdateNotification();
         return history.replace("/listingPeople");
     };
 }
