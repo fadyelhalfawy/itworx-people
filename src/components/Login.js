@@ -3,6 +3,7 @@ import auth from "../services/AuthService";
 import React from "react";
 import Joi from "joi-browser";
 import {Redirect} from "react-router-dom";
+import {displayLogOutNotification} from "../services/HttpService";
 export default class Login extends MainForm {
     state = {
         data: {
@@ -27,6 +28,7 @@ export default class Login extends MainForm {
     };
     render() {
         const { history } = this.props;
+        displayLogOutNotification();
 
         if (auth.getCurrentUser()) return <Redirect to="/" />;
 
@@ -57,6 +59,7 @@ export default class Login extends MainForm {
 
     doSubmit = async () => {
         const {data, errors} = this.state;
+
         try {
             const {location} = this.props;
             await auth.login(data.email, data.password);
