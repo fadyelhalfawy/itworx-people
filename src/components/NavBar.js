@@ -15,6 +15,10 @@ const NavBar = ({ user }) => {
                     <NavLink className="nav-item nav-link" to="/listingPeople">
                         People
                     </NavLink>
+
+                    <NavLink className="nav-item nav-link" to="/addPerson">
+                        Add Person
+                    </NavLink>
                 </div>
 
             </div>
