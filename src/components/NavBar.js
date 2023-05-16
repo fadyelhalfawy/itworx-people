@@ -3,11 +3,9 @@ import Link from "react-router-dom/Link";
 import React from "react";
 
 const NavBar = ({ user }) => {
-    let checkIfUser = "";
+    let checkIfUser;
 
-    if (user.user === null) checkIfUser = false;
-
-    else checkIfUser = true;
+    checkIfUser = user.user !== null;
 
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
