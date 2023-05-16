@@ -13,7 +13,7 @@ export default class Person extends Component {
                             <h4>{person.email}</h4>
                             <button className={"btn btn-outline-info btn-space m-2"} onClick={showPerson}>Read More</button>
                             <button className={"btn btn-outline-info btn-space m-2"} onClick={() => updatePerson(person.id)}>Update</button>
-                            <button className={"btn btn-outline-info btn-space m-2"} onClick={() => deletePerson(person.id)}>Delete</button>
+                            <button className={"btn btn-outline-danger btn-space m-2"} onClick={() => deletePerson(person.id)}>Delete</button>
                         </div>
                     </div>
                 ))}
