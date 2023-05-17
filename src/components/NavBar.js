@@ -1,6 +1,7 @@
 import {NavLink} from "react-router-dom";
-import Link from "react-router-dom/Link";
 import React from "react";
+import image from "../images/115585749-e3c58200-a299-11eb-8ddc-bd057b965631.png";
+import person from "../images/2-image.jpg";
 
 const NavBar = ({ user }) => {
     let checkIfUser;
@@ -8,16 +9,16 @@ const NavBar = ({ user }) => {
     checkIfUser = user.user !== null;
 
     return(
+        <React.Fragment>
         <nav className="navbar navbar-expand-lg navbar-light bg-info">
-            <Link className="navbar-brand" to="/">People Listing...</Link>
-            <div className="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+            <img className={"m-2"} src={image} alt="logo" width="30" height="24" />
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <form className="d-flex">
+                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+                </form>
                 <div className="navbar-nav">
                     <NavLink className="nav-item nav-link" to="/listingPeople">
                         People
-                    </NavLink>
-
-                    <NavLink className="nav-item nav-link" to="/addPerson">
-                        Add Person
                     </NavLink>
                 </div>
 
@@ -39,17 +40,27 @@ const NavBar = ({ user }) => {
                 {checkIfUser && (
                     <React.Fragment>
                         <NavLink className="nav-item nav-link" to="/singlePerson">
-                            Eve
+                            <div>
+                                <a className="navbar-brand" href="#">
+                                    <img className={"rounded-circle d-inline-block"} src={person} alt="logo" width="45" height="24" />
+                                    Eve
+                                </a>
+
+                            </div>
+
                         </NavLink>
 
                         <NavLink className="nav-item nav-link" to="/logout">
-                            Logout
+                            <a className="navbar-brand" href="#">
+                                Logout
+                            </a>
                         </NavLink>
                     </React.Fragment>
                 )}
 
             </div>
         </nav>
+        </React.Fragment>
     );
 }
 
