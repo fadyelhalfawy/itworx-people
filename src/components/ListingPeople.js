@@ -58,6 +58,6 @@ export default class ListingPeople extends Component {
     goToAddUser = () => {
         const { history } = this.props;
 
-        return history.replace("/listingPeople/new");
+        return history.replace("/addUser");
     }
 }
