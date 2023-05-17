@@ -1,9 +1,12 @@
 import React from "react";
 import Joi from "joi-browser";
-import {createUser, signUp} from "../services/UserService";
+import {createUser} from "../services/UserService";
 import MainForm from "./MainForm";
+import {displayAddUserNotification,} from "../services/HttpService";
+import RenderIn3Seconds from "./RenderIn3Seconds";
 
 export default class AddPerson extends MainForm {
+
     state = {
         data: {name: "", job: ""},
         errors: {}
@@ -40,9 +43,10 @@ export default class AddPerson extends MainForm {
                                 onClick={this.handleSubmit}>
                             Add User
                         </button>
-
                         {this.renderButton("btn-outline-danger", "Back", history, "/listingPeople", false)}
                     </form>
+
+
                 </section>
 
             </React.Fragment>
@@ -54,7 +58,8 @@ export default class AddPerson extends MainForm {
 
         try {
             await createUser(data);
-
+            displayAddUserNotification();
+            RenderIn3Seconds();
             window.location = "/listingPeople";
         }
         catch (e) {
