@@ -21,6 +21,8 @@ export const displayDeleteNotification = () => toast.error("Delete User Successf
 export const displayGetPersonNotification = () => toast.success("Get Person Successful");
 export const displayLogOutNotification = () => toast.success("Logged Out Successful");
 
+export const displayAddUserNotification = () => toast.success("User Add Successful");
+
 function setJwt(jwt) {
     Axios.defaults.headers.common["x-auth-token"] = jwt;
 }
