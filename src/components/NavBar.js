@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import React from "react";
 import image from "../images/115585749-e3c58200-a299-11eb-8ddc-bd057b965631.png";
 import person from "../images/2-image.jpg";
@@ -39,21 +39,16 @@ const NavBar = ({ user }) => {
 
                 {checkIfUser && (
                     <React.Fragment>
-                        <NavLink className="nav-item nav-link" to="/singlePerson">
+                        <NavLink className="nav-item nav-link navbar-brand" to="/singlePerson">
                             <div>
-                                <a className="navbar-brand" href="#">
-                                    <img className={"rounded-circle d-inline-block"} src={person} alt="logo" width="45" height="24" />
-                                    Eve
-                                </a>
-
+                                <img className={"rounded-circle d-inline-block"} src={person} alt="logo" width="45" height="24" />
+                                Eve
                             </div>
 
                         </NavLink>
 
-                        <NavLink className="nav-item nav-link" to="/logout">
-                            <a className="navbar-brand" href="#">
+                        <NavLink className="nav-item nav-link navbar-brand" to="/logout">
                                 Logout
-                            </a>
                         </NavLink>
                     </React.Fragment>
                 )}
