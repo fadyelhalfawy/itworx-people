@@ -13,6 +13,7 @@ import NavBar from "./components/NavBar";
 import auth from "./services/AuthService";
 import Logout from "./components/Logout";
 import CreateUser from "./components/CreateUser";
+import AddPerson from "./components/AddPerson";
 
 export class App extends Component {
     state = {
@@ -38,6 +39,7 @@ export class App extends Component {
                         <ProtectedRoute path={"/listingPeople/:id"} user={user} component={PersonForm}/>
                         <ProtectedRoute path={"/listingPeople"} user={user} component={ListingPeople}/>
                         <ProtectedRoute path={"/singlePerson"} user={user} component={SinglePerson}/>
+                        <ProtectedRoute path={"/addUser"} user={user} component={AddPerson}/>
                         <Route path={"/signup"} component={CreateUser} />
                         <Route path={"/not-found"} component={NotFound} />
                         <Redirect from={"/"} exact to={"/listingPeople"}/>
